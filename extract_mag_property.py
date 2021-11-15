@@ -81,3 +81,4 @@ for lattice_const in lattice_constants:
                     if EXTRACT_KEYWORD_TC in line:
                         tc_value = line.split()[6]
                         tc_value = tc_value.replace("K", "")
+                        print(tc_value)
