@@ -61,7 +61,6 @@ path_root = os.getcwd()
 for lattice_const in lattice_constants:
     for atomic_num in atomic_numbers:
         lattice_const_str = "%.*f" % (AFTER_DECIMAL_POINT_LATTICE_CONST_DIR, lattice_const)
-        lattice_const_bohr = str(round(lattice_const * ANGSTROM_TO_BOHR, AFTER_DECIMAL_POINT_BOHR))
         atomic_num = round(atomic_num, AFTER_DECIMAL_POINT_ATOMIC_NUM_DIR)
         atomic_num_str = "%.*f" % (AFTER_DECIMAL_POINT_ATOMIC_NUM_DIR, atomic_num)
         # get the absolute path of scf directory
