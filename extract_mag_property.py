@@ -36,7 +36,7 @@ help_text = 'The number of the component of atomic displacements'
 parser.add_argument('number_of_disp_component', help=help_text)
 
 help_text = 'magnetic properties which will be extracted'
-parser.add_argument('mag_property', choices=['tc', 'moment', 'j'], help=help_text)
+parser.add_argument('mag_property', choices=['tc', 'moment'], help=help_text)
 
 args = parser.parse_args()
 
@@ -67,7 +67,7 @@ for lattice_const in lattice_constants:
         path_scf = return_path(path_root, lattice_const_str, atomic_num_str)
         path_destination = path_scf
 
-        if args.mag_property == 'tc' or args.property == 'j':
+        if args.mag_property == 'tc':
             if os.path.exists(path_scf):
                 pass
             else:
