@@ -46,7 +46,7 @@ def return_path(*dir_names):
     :param dir_names: The names of hierarchies
     :return: absolute path of the directory
     """
-    path = "/"
+    path = ""
     for name in dir_names:
         path = path + name + "/"
     return path
