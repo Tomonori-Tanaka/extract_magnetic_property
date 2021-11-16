@@ -1,11 +1,19 @@
 import argparse
 import os
 import sys
+
+import pandas as pd
 from numpy import linspace
 
 AFTER_DECIMAL_POINT_LATTICE_CONST_DIR = 2
 AFTER_DECIMAL_POINT_ATOMIC_NUM_DIR = 1
 EXTRACT_KEYWORD_TC = 'Tc (in mean field approximation)'
+EXTRACT_KEYWORD_TYPE_1 = 'rmt='
+EXTRACT_KEYWORD_TYPE_2 = 'field='
+EXTRACT_KEYWORD_TYPE_3 = 'lmxtyp='
+REMOVED_STRING_TYPE_EQUAL = 'type='
+REMOVED_STRING_TYPE_MINUS = 'type-'
+EXTRACT_KEYWORD_MOMENT = '*** type-'
 
 parser = argparse.ArgumentParser(description='Extract magnetic moment or Tc from the result of phonon version of '
                                              'AkaiKKR: lattice_const/atomic_number/output_file or '
@@ -40,6 +48,7 @@ parser.add_argument('mag_property', choices=['tc', 'moment'], help=help_text)
 
 args = parser.parse_args()
 
+
 def return_path(*dir_names):
     """
     Return absolute path of the directory.
@@ -50,6 +59,7 @@ def return_path(*dir_names):
     for name in dir_names:
         path = path + name + "/"
     return path
+
 
 # ----- main part -----
 lattice_constants = linspace(args.lattice_const_start, args.lattice_const_end, args.division_num_lattice_const,
@@ -81,3 +91,24 @@ for lattice_const in lattice_constants:
                         tc_value = line.split()[6]
                         tc_value = tc_value.replace("K", "")
                         print(tc_value)
+
+            elif args.mag_property == 'moment':
+                type_list = []
+                with open(f'{path_destination}{args.output_file_name}', mode='r', encoding='utf-8') as f_temp:
+                    for line in f_temp:
+                        if EXTRACT_KEYWORD_TYPE_1 in line and \
+                                EXTRACT_KEYWORD_TYPE_2 in line and \
+                                EXTRACT_KEYWORD_TYPE_3 in line:
+                            # assumed line format example is below:
+                            # type=X1        rmt= 0.49237 field=  0.000   lmxtyp=  3
+                            type_name = line.split()[0]
+                            type_name = type_name.replace(REMOVED_STRING_TYPE_EQUAL, "")
+                            type_list.append(type_name)
+                moment_df = pd.DataFrame(index=[], columns=type_list)
+                for line in f:
+                    if EXTRACT_KEYWORD_MOMENT in line:
+                        # assumed line format example is below:
+                        # *** type-X1     Mn (z= 25.0) ***
+                        type_name = line.split()[1]
+                        type_name = type_name.replace(REMOVED_STRING_TYPE_MINUS, "")
+                        print(type_name)

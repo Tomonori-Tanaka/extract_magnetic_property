@@ -1,0 +1,196 @@
+  9-Nov-2021
+    17:25:01
+    meshr   mse    ng   mxl
+      400    65    27     4
+
+
+
+   data read in
+   go=tc   file=potential.data                                                  
+   brvtyp=bct     a=  5.32902  c/a= 0.99999  b/a= 0.00000
+   alpha=  0.0  beta=  0.0  gamma=  0.0
+   edelt= 1.0E-03  ewidth=  0.850  reltyp=sra    sdftyp=mjwasa   
+   magtyp=mag   record=2nd   outtyp=quit    bzqlty=15      
+   maxitr=  1  pmix= 0.01000  mixtyp=tchebyshev
+   ntyp=  1  natm=  1  ncmpx=  2
+
+
+   complex energy mesh
+   1( -0.850000, 0.000000)   2( -0.849964, 0.001111)   3( -0.849833, 0.002381) 
+   4( -0.849568, 0.003831)   5( -0.849115, 0.005483)   6( -0.848403, 0.007362) 
+   7( -0.847342, 0.009491)   8( -0.845816, 0.011898)   9( -0.843677, 0.014608) 
+  10( -0.840742, 0.017645)  11( -0.836787, 0.021030)  12( -0.831540, 0.024779) 
+  13( -0.824684, 0.028898)  14( -0.815852, 0.033382)  15( -0.804636, 0.038211) 
+  16( -0.790600, 0.043341)  17( -0.773301, 0.048708)  18( -0.752320, 0.054217) 
+  19( -0.727304, 0.059745)  20( -0.698011, 0.065143)  21( -0.664361, 0.070237) 
+  22( -0.626482, 0.074841)  23( -0.584744, 0.078767)  24( -0.539760, 0.081843) 
+  25( -0.492377, 0.083925)  26( -0.443617, 0.084918)  27( -0.394611, 0.084782) 
+  28( -0.346498, 0.083537)  29( -0.300341, 0.081261)  30( -0.257044, 0.078081) 
+  31( -0.217297, 0.074158)  32( -0.181546, 0.069672)  33( -0.150003, 0.064808) 
+  34( -0.122663, 0.059739)  35( -0.099352, 0.054618)  36( -0.079771, 0.049575) 
+  37( -0.063544, 0.044710)  38( -0.050257, 0.040096)  39( -0.039497, 0.035784) 
+  40( -0.030864, 0.031800)  41( -0.023997, 0.028158)  42( -0.018576, 0.024855) 
+  43( -0.014323, 0.021881)  44( -0.011006, 0.019219)  45( -0.008432, 0.016848) 
+  46( -0.006444, 0.014745)  47( -0.004913, 0.012887)  48( -0.003738, 0.011249) 
+  49( -0.002839, 0.009809)  50( -0.002153, 0.008546)  51( -0.001631, 0.007440) 
+  52( -0.001234, 0.006473)  53( -0.000933, 0.005628)  54( -0.000704, 0.004892) 
+  55( -0.000532, 0.004250)  56( -0.000401, 0.003691)  57( -0.000302, 0.003205) 
+  58( -0.000228, 0.002782)  59( -0.000171, 0.002414)  60( -0.000129, 0.002095) 
+  61( -0.000097, 0.001817)  62( -0.000073, 0.001576)  63( -0.000055, 0.001367) 
+  64( -0.000041, 0.001185)  65( -0.000031, 0.001028) 
+
+   file to be accessed=potential.data                                                                                                                                                                                                                                                  
+
+   lattice constant
+   bravais=bct   a=  5.32902   c/a= 1.0000   b/a= 1.0000
+   alpha=  90.00   beta=  90.00   gamma=  90.00
+   unit cell volume=    75.66721(a.u.)
+   volume filling= 100.0%
+
+   primitive translation vectors (in units of a)
+   a=( -0.50000  0.50000  0.50000)
+   b=(  0.50000 -0.50000  0.50000)
+   c=(  0.50000  0.50000 -0.50000)
+
+   reciprocal lattice vectors (in units of 2*pi/a)
+   ga=(  0.00000  1.00000  1.00001)
+   gb=(  1.00000  0.00000  1.00001)
+   gc=(  1.00000  1.00000  0.00000)
+
+   type of site
+   type=X1        rmt= 0.49237 field=  0.000   lmxtyp=  3
+                  cmpnt  1  dsp= 0.0000 0.0000 0.0000  anclr=  26.50  x= 0.5000
+                  cmpnt  2  dsp= 0.0000 0.0000 0.0000  anclr=  26.50  x= 0.5000
+
+   atoms in the unit cell
+   position=   0.00000000   0.00000000   0.00000000  type=X1
+
+   ew=   0.07514  ez=   0.62500
+
+   preta= 0.35542  eta= 0.35542
+
+   symop   E  C4*3   C2*3  C4^3*3   C3*4    C3^2*4      C2'*6
+     g     1  0 0 1  1 1 1  0 0 1  0 0 0 0  0 0 0 0  1 1 0 0 0 0
+     u     1  0 0 1  1 1 1  0 0 1  0 0 0 0  0 0 0 0  1 1 0 0 0 0
+
+   last=  964   np=  19   nt= 273   nrpt= 169   nk=   1992   nd=    1
+
+   core configuration for Z= 27
+   state  1s 2s 2p 3s 3p 3d 4s 4p 4d 5s 5p 4f 5d 6s 6p 5f 6d 7s
+    up     1  1  3  1  3  0  0  0  0  0  0  0  0  0  0  0  0  0
+   down    1  1  3  1  3  0  0  0  0  0  0  0  0  0  0  0  0  0
+
+   core configuration for Z= 27
+   state  1s 2s 2p 3s 3p 3d 4s 4p 4d 5s 5p 4f 5d 6s 6p 5f 6d 7s
+    up     1  1  3  1  3  0  0  0  0  0  0  0  0  0  0  0  0  0
+   down    1  1  3  1  3  0  0  0  0  0  0  0  0  0  0  0  0  0
+
+   ***** self-consistent iteration starts *****
+       X1
+   itr=  1 neu=    0.0000  moment=  2.1725  te=  -2659.97318164  err= -6.075
+   interval=  1     cpu time=     81.17 sec
+   sdftyp=mjwas   reltyp=sra     dmpc= 0.01000
+       X1
+   itr=  1  neu  0.0000  chr,spn   8.5000   2.1725  intc,ints  0.0000  0.0000
+   rms err= -6.077 -6.076 -6.077 -6.075
+   ef=   0.5609766   0.5609766  def=     2.9806373    13.5790184
+   band energy=    3.045450346   total energy=  -2659.973181643
+   magnetization=   2.2580 T
+
+
+
+
+
+
+
+                             *** type-X1     Fe (z= 26.5) ***
+   core charge in the muffin-tin sphere =18.0000000
+   valence charge in the cell (spin up  ) =     0.32154(s)   0.36442(p)   4.60495(d)   0.04534(f)
+   valence charge in the cell (spin down) =     0.32605(s)   0.41832(p)   2.38208(d)   0.03729(f)
+   total charge=  26.50000   valence charge (up/down)=   5.33625   3.16375
+   spin moment=   2.17249  orbital moment=   0.00000
+   orbital current (up/down)=   0.00000   0.00000
+
+   core level  (spin up  )
+      -533.6158657 Ry(1s)       -61.9281576 Ry(2s)       -52.8174875 Ry(2p) 
+        -6.1765964 Ry(3s)        -3.6078593 Ry(3p) 
+   core level  (spin down)
+      -533.6153094 Ry(1s)       -61.8332090 Ry(2s)       -52.7443093 Ry(2p) 
+        -5.9891960 Ry(3s)        -3.4266091 Ry(3p) 
+
+   hyperfine field of Fe
+     -246.005 kG (core=  -247.277 kG  valence=     1.271 kG  orbital=     0.000 kG )
+   core contribution
+      -20.627 kG(1s)     -546.081 kG(2s)      319.431 kG(3s)
+
+   charge density at the nucleus
+       16041.6214 (core=    16033.8843  valence=        7.5281 )
+   core contribution
+       14468.4742(1s)        1365.6650(2s)         199.7451(3s)
+
+
+
+                             *** type-X1     Fe (z= 26.5) ***
+   core charge in the muffin-tin sphere =18.0000000
+   valence charge in the cell (spin up  ) =     0.32154(s)   0.36442(p)   4.60495(d)   0.04534(f)
+   valence charge in the cell (spin down) =     0.32605(s)   0.41832(p)   2.38208(d)   0.03729(f)
+   total charge=  26.50000   valence charge (up/down)=   5.33625   3.16375
+   spin moment=   2.17249  orbital moment=   0.00000
+   orbital current (up/down)=   0.00000   0.00000
+
+   core level  (spin up  )
+      -533.6158657 Ry(1s)       -61.9281576 Ry(2s)       -52.8174875 Ry(2p) 
+        -6.1765964 Ry(3s)        -3.6078593 Ry(3p) 
+   core level  (spin down)
+      -533.6153094 Ry(1s)       -61.8332090 Ry(2s)       -52.7443093 Ry(2p) 
+        -5.9891960 Ry(3s)        -3.4266091 Ry(3p) 
+
+   hyperfine field of Fe
+     -246.005 kG (core=  -247.277 kG  valence=     1.271 kG  orbital=     0.000 kG )
+   core contribution
+      -20.627 kG(1s)     -546.081 kG(2s)      319.431 kG(3s)
+
+   charge density at the nucleus
+       16041.6214 (core=    16033.8843  valence=        7.5281 )
+   core contribution
+       14468.4742(1s)        1365.6650(2s)         199.7451(3s)
+
+
+
+   BZ-mesh regenerated
+   last=  964   np=  19   nt= 273   nrpt= 169   nk=  13504   nd=    1
+
+
+
+
+   Tc calculation starts
+
+   Molecular field on each sublattice in
+   the assumed magnetic configuration
+
+   sublat cmpnt   Hmf(Ry)     Hmf(meV)
+   -------------------------------------
+      1     1     0.036843  501.275368
+      1     2     0.036843  501.275368
+ 
+   Tc (in mean field approximation) =  1939.018K
+
+
+
+
+ cpu used      7255.95 sec
+
+
+ elapsed time       224.91 sec ( 49 threads)
+
+
+ 
+ sbtime report
+  routine           1         2         3         4
+  count           764       764        98         2
+  cpu(sec)    4984.43   2887.03     26.44      1.75
+ 
+ total cpu         7256.14 sec
+ elapsed time       224.91 sec ( 49 threads)
+
+
