@@ -14,6 +14,7 @@ EXTRACT_KEYWORD_TYPE_3 = 'lmxtyp='
 REMOVED_STRING_TYPE_EQUAL = 'type='
 REMOVED_STRING_TYPE_MINUS = 'type-'
 EXTRACT_KEYWORD_MOMENT = '*** type-'
+MOMENT_LOCATION_AFTER_KEYWORD = 4
 
 parser = argparse.ArgumentParser(description='Extract magnetic moment or Tc from the result of phonon version of '
                                              'AkaiKKR: lattice_const/atomic_number/output_file or '
@@ -43,8 +44,12 @@ parser.add_argument('output_file_name', help=help_text)
 help_text = 'The number of the component of atomic displacements'
 parser.add_argument('number_of_disp_component', help=help_text)
 
-help_text = 'magnetic properties which will be extracted'
+help_text = 'magnetic properties which will be extracted: Current version returns site average, ' \
+            'not the average of an atomic specie in each site.'
 parser.add_argument('mag_property', choices=['tc', 'moment'], help=help_text)
+
+help_text = 'site name you want: Current version offers this option only if mag_property is moment'
+parser.add_argument('-sn', '--site_name', help=help_text)
 
 args = parser.parse_args()
 
@@ -59,6 +64,21 @@ def return_path(*dir_names):
     for name in dir_names:
         path = path + name + "/"
     return path
+
+def extract_moment_from_iter(iter):
+    """
+
+    :param iter: iterator of a text file.
+    :return: magnetic (spin) moment (float)
+    """
+    for i in range(MOMENT_LOCATION_AFTER_KEYWORD):
+        next(iter)
+    moment = iter.__next__()
+    # assumed example is:
+    # spin moment=   0.38735  orbital moment=   0.00000
+    moment = float(moment.split()[2])
+    return moment
+
 
 
 # ----- main part -----
@@ -111,4 +131,6 @@ for lattice_const in lattice_constants:
                         # *** type-X1     Mn (z= 25.0) ***
                         type_name = line.split()[1]
                         type_name = type_name.replace(REMOVED_STRING_TYPE_MINUS, "")
-                        print(type_name)
+                        moment = extract_moment_from_iter(f)
+                        moment_df = moment_df.append({type_name: moment}, ignore_index=True)
+                print(moment_df[args.site_name].mean())
