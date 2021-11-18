@@ -51,6 +51,9 @@ parser.add_argument('mag_property', choices=['tc', 'moment'], help=help_text)
 help_text = 'site name you want: Current version offers this option only if mag_property is moment'
 parser.add_argument('-sn', '--site_name', help=help_text)
 
+help_text = 'additionaly display the difference of magnetic moment between the maximum and minimum values.'
+parser.add_argument('-diff', '--difference', action='store_true', help=help_text)
+
 args = parser.parse_args()
 
 
@@ -133,4 +136,8 @@ for lattice_const in lattice_constants:
                         type_name = type_name.replace(REMOVED_STRING_TYPE_MINUS, "")
                         moment = extract_moment_from_iter(f)
                         moment_df = moment_df.append({type_name: moment}, ignore_index=True)
-                print(moment_df[args.site_name].mean())
+                if args.difference:
+                    print(moment_df[args.site_name].mean(), "  ",
+                          moment_df[args.site_name].max() - moment_df[args.site_name].min())
+                else:
+                    print(moment_df[args.site_name].mean())
