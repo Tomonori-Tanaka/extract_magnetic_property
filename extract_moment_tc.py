@@ -54,6 +54,9 @@ parser.add_argument('-sn', '--site_name', help=help_text)
 help_text = 'additionaly display the difference of magnetic moment between the maximum and minimum values.'
 parser.add_argument('-diff', '--difference', action='store_true', help=help_text)
 
+help_text = 'additionaly display the directory names'
+parser.add_argument('-dirs', '--show_dirs', action='store_true', help=help_text)
+
 args = parser.parse_args()
 
 
@@ -136,8 +139,10 @@ for lattice_const in lattice_constants:
                         type_name = type_name.replace(REMOVED_STRING_TYPE_MINUS, "")
                         moment = extract_moment_from_iter(f)
                         moment_df = moment_df.append({type_name: moment}, ignore_index=True)
+                text = ''
+                if args.show_dirs:
+                    text = lattice_const_str + "/" + atomic_num_str + "     "
+                text = text + str(moment_df[args.site_name].mean())
                 if args.difference:
-                    print(moment_df[args.site_name].mean(), "  ",
-                          moment_df[args.site_name].max() - moment_df[args.site_name].min())
-                else:
-                    print(moment_df[args.site_name].mean())
+                    text = text + "     " + str(moment_df[args.site_name].max() - moment_df[args.site_name].min())
+                print(text)
